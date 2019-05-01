@@ -36,7 +36,8 @@ var handlers = {
   'not'    : notHandler,
   'and'    : _.partial(logicalHandler, 'where'),
   'or'     : _.partial(logicalHandler, 'orWhere'),
-  'related' : relationHandler
+  'related' : _.partial(relatedHandler, 'whereHas'),
+  'not_related': _.partial(relatedHandler, 'whereNotHas'),
 };
 
 function eqHandler (field, arg) {
@@ -62,12 +63,12 @@ function notHandler (field, arg) {
   this.whereNot(whereFilter(arg));
 }
 
-function relationHandler (field, arg) {
+function relatedHandler (op, field, arg) {
   if (typeof this.whereHas === 'undefined') {
     throw new TypeError('whereHas function is not available, you should use bookshelf-eloquent plugin.');
   }
   _.each(arg, function(filter, relation) {
-    this.whereHas(relation, (query) => {
+    this[op](relation, (query) => {
       query.where(whereFilter(filter));
     });
   }, this);

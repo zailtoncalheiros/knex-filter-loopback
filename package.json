@@ -1,6 +1,6 @@
 {
   "name": "knex-json-filter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Declarative filtering for knex.js based on the Loopback Where Filter.",
   "main": "index.js",
   "directories": {
