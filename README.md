@@ -1,4 +1,4 @@
-# knex-filter-loopback
+# knex-json-loopback
 
 Declarative filtering for `knex.js` based on the [Loopback Where Filter](https://loopback.io/doc/en/lb3/Where-filter.html). This module has been inspired by and based on [Constantin Titarenko's knex filter module](https://github.com/titarenko/knex-filter).
 
