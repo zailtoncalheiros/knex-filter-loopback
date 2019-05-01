@@ -15,7 +15,7 @@ npm i knex-filter-loopback --save
 ## Usage
 
 ```js
-var whereFilter = require('knex-filter-loopback').whereFilter;
+var whereFilter = require('knex-json-filter').whereFilter;
 
 knex('tablename')
 	.where(whereFilter({
